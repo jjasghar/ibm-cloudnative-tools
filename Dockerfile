@@ -4,27 +4,22 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV ISTIO_VERSION=1.0.2
 
 # Update the OS
-RUN apt-get update
-
-# Install deps that are needed
-RUN apt-get install wget curl unzip nano -y
+RUN apt-get update && apt-get install wget curl unzip nano -y
 
 # IBMcloud CLI
 WORKDIR "/root"
 RUN curl -sL https://ibm.biz/idt-installer | bash
-RUN cd /root/
-RUN mkdir /root/bin
 
 # Istio
 WORKDIR "/root"
-RUN wget https://github.com/istio/istio/releases/download/${ISTIO_VERSION}/istio-${ISTIO_VERSION}-linux.tar.gz
-RUN tar -xvzf istio-${ISTIO_VERSION}-linux.tar.gz
-RUN rm -rf istio-${ISTIO_VERSION}-linux.tar.gz
+RUN wget https://github.com/istio/istio/releases/download/${ISTIO_VERSION}/istio-${ISTIO_VERSION}-linux.tar.gz && \
+        tar -xvzf istio-${ISTIO_VERSION}-linux.tar.gz && \
+        rm -rf istio-${ISTIO_VERSION}-linux.tar.gz
 
 # Cleanup
 WORKDIR "/root"
 RUN  apt-get clean && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/*log /var/log/apt/* /var/lib/dpkg/*-old /var/cache/debconf/*-old
+        rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/*log /var/log/apt/* /var/lib/dpkg/*-old /var/cache/debconf/*-old
 RUN echo 'export PS1="\[\e[34m\]IBM\[\e[m\]☁️  # "' > /root/.bashrc
 RUN echo 'export PATH=$PATH:/root/bin:/root/helm-${HELM_VERSION}:/root/istio-${ISTIO_VERSION}/bin/' >> /root/.bashrc
 RUN echo 'cat /etc/motd' >> /root/.bashrc
