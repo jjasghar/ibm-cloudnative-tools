@@ -10,21 +10,21 @@ the IBM :cloud: Native applications in one spot.
 Here is how to build it:
 
 ```shell
-git clone GITREPO
-cd iibm-cloudnative-tools
+git clone https://github.com/jjasghar/ibm-cloudnative-tools
+cd ibm-cloudnative-tools
 docker build .
 ```
 
 ## Running the container
 
 ```shell
-docker pull IBM/ibm-cloudnative-tools # TBD
+docker run -it jjasghar/ibm-cloudnative-tools
 ```
 
 ### Using BlueMix
 
 ```shell
-docker run -it IBM/ibmcloud-tools # TBD
+docker run -it jjasghar/ibm-cloudnative-tools
 IBM☁️  # ibmcloud login
 ```
 
@@ -40,7 +40,7 @@ If you would like to see the detailed LICENCE click [here](./LICENCE).
 - Author: JJ Asghar <jja@ibm.com>
 
 ```text
-Copyright:: IBM, Inc
+Copyright:: 2018- IBM, Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
