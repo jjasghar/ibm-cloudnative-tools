@@ -1,4 +1,4 @@
-IMAGE := jjasghar/ibm-cloudnative-cli
+IMAGE := jjasghar/ibm-cloudnative-tools
 VERSION:= $(shell grep IBM_CLOUD_NATIVE Dockerfile | awk '{print $2}' | cut -d '=' -f 2)
 
 test:
