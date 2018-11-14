@@ -1,5 +1,7 @@
 # IBM cloud native Docker container
 
+[![Build Status](https://travis-ci.org/jjasghar/ibm-cloudnative-tools.svg?branch=master)](https://travis-ci.org/jjasghar/ibm-cloudnative-tools)
+
 ## Scope
 
 This is so you can have all of the tooling you need to start using
